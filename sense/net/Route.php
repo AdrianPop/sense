@@ -75,14 +75,17 @@ class RouteCollection
     {
         $router = Sense::getRouter();
 
-        foreach ( self::$routes as $route )
+        if ( count(self::$routes) )
         {
-            $router->add($route->path, $route->action,
-                [
-                    'require' => $route->requires,
-                    'default' => $route->defaults
-                ]
-            );
+            foreach ( self::$routes as $route )
+            {
+                $router->{$route->verb}($route->path, [ $route->action['controller'], $route->action['method'] ],
+                    [
+                        'require' => $route->requires,
+                        'default' => $route->defaults
+                    ]
+                );
+            }
         }
     }
 }

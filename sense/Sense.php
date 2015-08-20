@@ -1,5 +1,6 @@
 <?php namespace sense;
 
+use Pux\Executor;
 use sense\Container;
 use sense\net\Request;
 use sense\net\Response;
@@ -41,6 +42,7 @@ class Sense
      */
     public function loadDependencies()
     {
+        Container::resetInstance();
         Container::instance();
         
         new Request;
@@ -69,8 +71,22 @@ class Sense
      * @return bool
      */
     public function run()
-    {        
-        return true;
+    {
+        $route = Sense::getRouter()->dispatch($_SERVER['REQUEST_URI']);
+
+        $response = Sense::getResponse();
+
+        if (is_null($route))
+        {
+            $response->setStatusCode(Response::STATUS_CODE_404)
+                ->setContent('404 Not Found');
+
+            return $response->send();
+        }
+
+        $response->setContent(Executor::execute($route));
+
+        return $response->send();
     }
     
 //    /**

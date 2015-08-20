@@ -9,4 +9,9 @@ trait SingletonInstance
         return is_null(self::$instance) ?
             (self::$instance = new static) : self::$instance;
     }
+
+    public static function resetInstance()
+    {
+        self::$instance = null;
+    }
 }
