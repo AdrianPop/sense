@@ -14,7 +14,8 @@ class Sense
     public function __construct()
     {
 
-        $this->loadDependencies();
+        $this->loadDependencies()
+            ->loadRouting();
         
 //         $this->loadRouting();
     }
@@ -25,6 +26,8 @@ class Sense
         
         new Request;
         new Response;
+
+        return $this;
     }
     
     public function loadRouting()
@@ -32,6 +35,8 @@ class Sense
         require_once dirname(__FILE__) . "/../app/routes.php";
         
         RouteCollection::toPux();
+
+        return $this;
     }
 
     public function run()

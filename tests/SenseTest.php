@@ -1,23 +1,21 @@
-<?php namespace sense;
-
-echo dirname(__FILE__);
+<?php namespace tests;
 
 require dirname(__FILE__) . "/../vendor/autoload.php";
 
 class SenseTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var \sense\Sense
+     */
     public $instance;
-    
+
     public function setUp()
     {
         $this->instance = new \sense\Sense();
     }
-    
-    /**
-     * @test
-     */
-    public function runTest()
+
+    public function testRun()
     {
-        $this->assertTrue(true);
+        $this->assertTrue($this->instance->run());
     }
 }

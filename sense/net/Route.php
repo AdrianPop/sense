@@ -56,7 +56,7 @@ class RouteCollection
     {
         foreach ( self::$routes as $route )
         {
-            print_r($route);
+//            print_r($route);
         }
     }
 }
