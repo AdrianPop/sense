@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/AdrianPop/sense.svg)](https://travis-ci.org/AdrianPop/sense)
+[![Build Status](https://drone.io/bitbucket.org/AdrianPop/sense/status.png)](https://drone.io/bitbucket.org/AdrianPop/sense/latest)
