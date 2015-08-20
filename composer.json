@@ -21,7 +21,8 @@
     "autoload": {
         "classmap": [
           "sense/",
-          "app/controllers/"
+          "app/controllers/",
+          "tests/"
         ]
     },
     "require-dev": {
