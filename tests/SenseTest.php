@@ -1,6 +1,8 @@
 <?php namespace sense;
 
-require "/home/codio/workspace/sense/vendor/autoload.php";
+echo dirname(__FILE__);
+
+require dirname(__FILE__) . "/../vendor/autoload.php";
 
 class SenseTest extends \PHPUnit_Framework_TestCase
 {
