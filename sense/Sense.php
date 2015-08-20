@@ -13,16 +13,6 @@ class Sense
     
     public function __construct()
     {
-        //        require_once dirname(__FILE__) . "/../app/routes.php";
-//
-//        $this->router = new \Pux\Mux();
-//
-//        $route = $this->router->dispatch($_SERVER['REQUEST_URI']);
-//
-//        $result = Executor::execute($route);
-//
-//        $this->response->setContent($result);
-//        return $this->response->send();
 
         $this->loadDependencies();
         
