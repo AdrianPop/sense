@@ -1,23 +1,42 @@
 <?php namespace sense\net;
+use sense\Sense;
 
+/**
+ * Class Route
+ * @package sense\net
+ *
+ * @method static Route get($path, $action)
+ * @method static Route post($path, $action)
+ */
 class Route
 {
-    public static function get($path, $action)
+    public $path = null;
+
+    public $action = array();
+
+    public $requires = array();
+
+    public $defaults = array();
+
+    public $verb = null;
+
+    public static function __callStatic($method, $params)
     {
         $self = new self;
 
-        $self->path = $path;
+        $self->path = $params[0];
+        $self->verb = strtolower($method);
         
-        list($self->action['controller'], $self->action['method']) = explode('@', $action);
+        list($self->action['controller'], $self->action['method']) = explode('@', $params[1]);
 
         RouteCollection::add($self);
 
         return $self;
     }
 
-    public function where ($params)
+    public function requires ($params)
     {
-        $this->where = $params;
+        $this->requires = $params;
 
         return $this;
     }
@@ -52,11 +71,18 @@ class RouteCollection
         }
     }
 
-    public static function toPux()
+    public static function compile()
     {
+        $router = Sense::getRouter();
+
         foreach ( self::$routes as $route )
         {
-//            print_r($route);
+            $router->add($route->path, $route->action,
+                [
+                    'require' => $route->requires,
+                    'default' => $route->defaults
+                ]
+            );
         }
     }
 }
