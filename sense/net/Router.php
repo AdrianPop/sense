@@ -27,14 +27,7 @@ class Router extends PuxMux
     {
         foreach ( $route->method as $method )
         {
-            $callable = $route->callable;
-
-//            if ( is_array($route->callable) )
-//            {
-//                $ca
-//            }
-
-            $this->{$method}($route->uriPath, $callable,
+            $this->{$method}($route->uriPath, $route->callable,
                 [
                     'require' => $route->requires,
                     'default' => $route->defaults
