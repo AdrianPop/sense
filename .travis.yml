@@ -1,5 +1,7 @@
 language: php
 php:
+  - 5.3
+  - 5.4
   - 5.5
   - 5.6
   - 7
@@ -8,14 +10,10 @@ php:
 
 before_script:
   - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install -n
-  - php composer.phar update --dev
-
-install:
-  - composer install && composer update -o
+  - php composer.phar install
+  - php composer.phar update -o
 
 script: ./vendor/bin/phpunit tests
 
 after_script:
-  - ./vendor/bin/test-reporter
   - ./vendor/bin/codacycoverage clover build/logs/clover.xml
