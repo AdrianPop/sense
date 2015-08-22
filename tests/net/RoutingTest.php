@@ -3,7 +3,6 @@
 
 use sense\C;
 use sense\net\Route;
-use sense\net\RouteCollection;
 use sense\net\Router;
 use sense\Sense;
 
