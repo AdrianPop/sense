@@ -13,7 +13,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $this->instance = new Response();
     }
 
-    public function test__construct()
+    public function testConstruct()
     {
         $this->assertInstanceOf('sense\net\Response', $this->instance);
     }
