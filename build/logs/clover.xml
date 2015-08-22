@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1440247794">
-  <project timestamp="1440247794">
+<coverage generated="1440252260">
+  <project timestamp="1440252260">
     <file name="/Users/ady/PhpstormProjects/sense/app/routes.php">
       <line num="9" type="stmt" count="1"/>
       <line num="11" type="stmt" count="1"/>
