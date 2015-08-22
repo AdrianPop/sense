@@ -18,7 +18,7 @@ require dirname(__FILE__) . "/../../vendor/autoload.php";
  */
 class RoutingTest extends \PHPUnit_Framework_TestCase
 {
-    public $router;
+    public $router; 
 
     public function setUp()
     {
