@@ -40,7 +40,7 @@ class Sense
     {
         $this->container->offsetSet('request', new Request());
         $this->container->offsetSet('response', new Response());
-        $this->container->offsetSet('router', new Router());
+        $this->container->offsetSet('router', new Router($this->container));
     }
 
     /**

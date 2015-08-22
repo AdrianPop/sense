@@ -2,13 +2,23 @@
 
 use \Pux\Mux as PuxMux;
 use \Pux\Executor;
+use sense\Container;
 use sense\Sense;
 use sense\net\Route;
 use sense\C;
 
 class Router extends PuxMux
 {
-    
+    /**
+     * @var Container
+     */
+    private $container = null;
+
+    public function __construct($container)
+    {
+        $this->container = $container;
+    }
+
     public function create(Route $route)
     {
         foreach ( $route->method as $method )
@@ -21,10 +31,16 @@ class Router extends PuxMux
             );
         }
     }
-    
+
+    /**
+     * Should be moved to Response
+     *
+     * @return mixed
+     * @throws \Exception
+     */
     public function dispatchAndRespond()
     {
-        $response = C::get('response');
+        $response = $this->container->offsetGet('response');
         
         $route = $this->dispatch($_SERVER['REQUEST_URI']);
         

@@ -12,6 +12,21 @@ ini_set("display_errors", 1);
 
 use Zend\Http\PhpEnvironment;
 
+function loadClass($class)
+{
+    static $__loaded;
+
+    if ( isset($__loaded[$class]) )
+    {
+        return $__loaded[$class];
+    }
+
+    $instance = new $class;
+    return $__loaded[get_class($instance)] = $instance;
+}
+
+
+
 $config = include 'app/config.php';
 
 $container = new \sense\Container();
