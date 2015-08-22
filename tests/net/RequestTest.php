@@ -13,7 +13,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->instance = new Request();
     }
 
-    public function test__construct()
+    public function testCconstruct()
     {
         $this->assertInstanceOf('sense\net\Request', $this->instance);
     }

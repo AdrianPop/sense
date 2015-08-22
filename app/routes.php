@@ -1,11 +1,7 @@
 <?php
 
-use sense\C;
+use sense\Container;
 use sense\net\Route;
 
-/**
- * @var \sense\Router
- */
-$router = C::get('router');
-
-$router->create(new Route('get,post', '/:id', 'IndexController@index', ['id'   => '\d+'], ['id'   => 999]));
+//$router = C::get('router');
+//$router->create(new Route('get,post', '/:id', 'IndexController@index', ['id'   => '\d+'], ['id'   => 999]));

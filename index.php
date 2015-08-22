@@ -14,4 +14,6 @@ use Zend\Http\PhpEnvironment;
 
 $config = include 'app/config.php';
 
-return (new \sense\Sense())->run();
+$container = new \sense\Container();
+
+return $sense = (new \sense\Sense($container))->run();

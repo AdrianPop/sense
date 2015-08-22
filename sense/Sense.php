@@ -21,8 +21,11 @@ class Sense
 {
     public $instance;
 
-    public function __construct()
+    private $container;
+
+    public function __construct(Container $container)
     {
+        $this->container = $container;
 
         $this->loadDependencies();
         $this->loadRouting();
@@ -35,11 +38,9 @@ class Sense
      */
     public function loadDependencies()
     {
-        C::forceGenerateInstance();
-        
-        C::set('request', new Request);
-        C::set('response', new Response);
-        C::set('router', new Router);
+        $this->container->offsetSet('request', new Request());
+        $this->container->offsetSet('response', new Response());
+        $this->container->offsetSet('router', new Router());
     }
 
     /**
@@ -58,6 +59,6 @@ class Sense
      */
     public function run()
     {
-        return C::get('router')->dispatchAndRespond();
+        return $this->container->offsetGet('router')->dispatchAndRespond();
     }
 }

@@ -1,5 +1,7 @@
 <?php namespace tests;
 
+use sense\Container;
+
 require dirname(__FILE__) . "/../vendor/autoload.php";
 
 class SenseTest extends \PHPUnit_Framework_TestCase
@@ -11,7 +13,7 @@ class SenseTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->instance = new \sense\Sense();
+        $this->instance = new \sense\Sense(new Container());
     }
 
     public function testRun()
