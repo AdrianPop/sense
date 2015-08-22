@@ -25,9 +25,6 @@ class Sense
     public function __construct(Container $container)
     {
         $this->container = $container;
-
-        $this->loadDependencies();
-        $this->loadRouting();
     }
 
     /**
@@ -48,6 +45,8 @@ class Sense
         $this->container->offsetSet('request', new Request());
         $this->container->offsetSet('response', new Response());
         $this->container->offsetSet('router', new Router($this->container));
+
+        return $this;
     }
 
     /**
@@ -57,7 +56,13 @@ class Sense
      */
     public function loadRouting()
     {
-        include_once dirname(__FILE__) . "/../app/routes.php";
+        $routes = require_once dirname(__FILE__) . "/../app/routes.php";
+
+        $this->getContainer()
+            ->offsetGet('router')
+            ->attachRoutes($routes);
+
+        return $this;
     }
 
     /**

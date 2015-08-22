@@ -31,4 +31,7 @@ $config = include 'app/config.php';
 
 $container = new \sense\Container();
 
-return $sense = (new \sense\Sense($container))->run();
+return $sense = (new \sense\Sense($container))
+    ->loadDependencies()
+    ->loadRouting()
+    ->run();

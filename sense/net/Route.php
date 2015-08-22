@@ -18,7 +18,7 @@ class Route
         
         $this->uriPath = $uriPath;
         
-        $this->callable = explode('@', $callable);
+        $this->callable = is_object($callable) ? $callable : explode('@', $callable);
         
         $this->requires = $requires;
         
