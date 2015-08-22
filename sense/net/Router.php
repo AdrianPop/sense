@@ -37,8 +37,13 @@ class Router extends PuxMux
     public function dispatchAndRespond()
     {
         $response = $this->container->offsetGet('response');
+
+        /**
+         * @var Request
+         */
+        $request = $this->container->offsetGet('request');
         
-        $route = $this->dispatch($_SERVER['REQUEST_URI']);
+        $route = $this->dispatch($request->getRequestUri());
         
         if (is_null($route))
         {

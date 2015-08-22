@@ -12,15 +12,14 @@ use sense\net\Router;
 /**
  * Class Sense
  * @package sense
- *
- * @method static Request getRequest()
- * @method static Response getResponse()
- * @method static Router getRouter()
  */
 class Sense
 {
     public $instance;
 
+    /**
+     * @var Container
+     */
     private $container;
 
     public function __construct(Container $container)
@@ -29,6 +28,14 @@ class Sense
 
         $this->loadDependencies();
         $this->loadRouting();
+    }
+
+    /**
+     * @return Container
+     */
+    public function getContainer()
+    {
+        return $this->container;
     }
 
     /**
