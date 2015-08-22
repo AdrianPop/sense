@@ -6,5 +6,8 @@ php:
   - 7
   - hhvm
   - nightly
+
+install:
+  - composer install && composer update -0
   
 script: ./vendor/bin/phpunit tests
