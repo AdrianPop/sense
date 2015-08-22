@@ -8,6 +8,6 @@ php:
   - nightly
 
 install:
-  - composer install && composer update -0
-  
+  - composer install && composer update -o
+
 script: ./vendor/bin/phpunit tests
