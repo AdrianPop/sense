@@ -10,8 +10,6 @@ $whoops->register();
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-use Zend\Http\PhpEnvironment;
-
 function loadClass($class)
 {
     static $__loaded;
