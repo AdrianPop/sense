@@ -1,12 +1,12 @@
 <?php namespace tests;
 
-use sense\Container;
+use sense\C;
 
 error_reporting(-1); ini_set('display_errors', 1);
 
 require dirname(__FILE__) . "/../vendor/autoload.php";
 
-class ContainerTest extends \PHPUnit_Framework_TestCase
+class CTest extends \PHPUnit_Framework_TestCase
 {
     /*
      * @var \sense\Container
@@ -18,32 +18,19 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->instance = Container::instance();
-
-        $this->instance->set($this->key, $this->val);
+        C::forceGenerateInstance();
     }
-
-    public function testGet()
+    
+    public function testFlow()
     {
-        $this->assertInstanceOf('\sense\Container', $this->instance);
-
-        $this->assertEquals($this->val, $this->instance->get($this->key));
-    }
-
-    public function testSet()
-    {
-        $this->assertTrue($this->instance->exists($this->key));
-    }
-
-    public function testExists()
-    {
-        $this->assertTrue($this->instance->exists($this->key));
-    }
-
-    public function testRemove()
-    {
-        $this->instance->remove($this->key);
-
-        $this->assertFalse($this->instance->exists($this->key));
+        C::set($this->key, $this->val);
+        
+        $this->assertTrue(C::exists($this->key));
+        $this->assertFalse(C::exists($this->key . "1"));
+        $this->assertEquals($this->val, C::get($this->key));
+        
+        C::remove($this->key, $this->val);
+        
+        $this->assertFalse(C::exists($this->key));
     }
 }

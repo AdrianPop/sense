@@ -1,12 +1,11 @@
 <?php
 
+use sense\C;
 use sense\net\Route;
 
 /**
- * path, controller @ action, require, defaults
+ * @var \sense\Router
  */
-Route::get('/0/:id', 'IndexController@index')
-    ->requires(['id'   => '\d+'])
-    ->defaults(['id' => 999]);
+$router = C::get('router');
 
-Route::get('/1', 'IndexController@index');
+$router->create(new Route('get,post', '/:id', 'IndexController@index', ['id'   => '\d+'], ['id'   => 999]));

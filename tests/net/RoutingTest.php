@@ -1,7 +1,7 @@
 <?php namespace tests;
 
 
-use sense\Container;
+use sense\C;
 use sense\net\Route;
 use sense\net\RouteCollection;
 use sense\net\Router;
@@ -22,33 +22,21 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        new \sense\Sense();
-
-        $this->router = Sense::getRouter();
-
-        Route::get('/1', 'IndexController@index');
-
-        RouteCollection::compile();
+        $this->router = C::get('router');
+        
+        $this->router->create(new Route('get', '/:id', 'IndexController@index', ['id'   => '\d+'], ['id'   => 999]));
     }
 
-    public function testMatchingRoute()
+    public function testFlow()
     {
         $_SERVER['REQUEST_METHOD'] = "GET";
 
+        // matching route
         $this->assertNotNull($this->router->dispatch('/1'));
-    }
-
-    public function testNonMatchingRoute()
-    {
-        $_SERVER['REQUEST_METHOD'] = "GET";
-
-        $this->assertNull($this->router->dispatch('/123'));
-    }
-
-    public function testNonMatchingPostOnGetRoute()
-    {
-        $_SERVER['REQUEST_METHOD'] = "POST";
-
-        $this->assertNull($this->router->dispatch('/1'));
+        
+        // non matching routes
+        $this->assertNull($this->router->dispatch('/abc'));
+        $this->assertNull($this->router->dispatch('/1/2/3'));
+        
     }
 }

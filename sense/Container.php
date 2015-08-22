@@ -1,26 +1,59 @@
 <?php namespace sense;
 
-class Container extends \Pimple\Container
-{
-    use SingletonInstance;
-    
-    public static function get($id)
-    {
-        return self::$instance->offsetGet($id);
-    }
+use \Pimple\Container as PimpleContainer;   
 
+class C
+{
+    private static $_instance = null;
+    
+    private static function checkOrGenerateInstance()
+    {
+        if (is_null(self::$_instance))
+        {
+            self::$_instance = new PimpleContainer;
+        }
+    }
+    
+    public static function forceGenerateInstance()
+    {
+        self::$_instance = new PimpleContainer;
+    }
+    
     public static function set($key, $value)
     {
-        return self::$instance->offsetSet($key, $value);
+        self::checkOrGenerateInstance();
+        
+        self::$_instance->offsetSet($key, $value);
     }
-
+    
     public static function exists($key)
     {
-        return self::$instance->offsetExists($key);
+        self::checkOrGenerateInstance();
+        
+        return self::$_instance->offsetExists($key);
     }
-
+    
+    public static function get($key)
+    {
+        self::checkOrGenerateInstance();
+        
+        if ( self::$_instance->offsetExists($key) )
+        {
+            return self::$_instance->offsetGet($key);
+        }
+        
+        return null;
+    }
+    
     public static function remove($key)
     {
-        return self::$instance->offsetUnset($key);
+        self::checkOrGenerateInstance();
+        
+        if ( self::$_instance->offsetExists($key) )
+        {
+            return self::$_instance->offsetUnset($key);
+        }
+        
+        return null;
     }
 }
