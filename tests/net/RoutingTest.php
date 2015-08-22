@@ -6,7 +6,6 @@ use sense\net\Route;
 use sense\net\Router;
 use sense\Sense;
 
-error_reporting(-1); ini_set('display_errors', 1);
 require dirname(__FILE__) . "/../../vendor/autoload.php";
 
 /**
@@ -17,6 +16,9 @@ require dirname(__FILE__) . "/../../vendor/autoload.php";
  */
 class RoutingTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var Router
+     */
     public $router; 
 
     public function setUp()
