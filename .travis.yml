@@ -11,7 +11,7 @@ before_install:
 
 install: composer update -o
 
-script: ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml tests
+script: ./vendor/bin/phpunit --coverage-clover _build/logs/clover.xml tests
 
 after_script:
-  - ./vendor/bin/codacycoverage clover build/logs/clover.xml
+  - ./vendor/bin/codacycoverage clover _build/logs/clover.xml
