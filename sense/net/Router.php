@@ -1,11 +1,7 @@
 <?php namespace sense\net;
 
 use \Pux\Mux as PuxMux;
-use \Pux\Executor;
 use sense\Container;
-use sense\Sense;
-use sense\net\Route;
-use sense\C;
 
 class Router extends PuxMux
 {

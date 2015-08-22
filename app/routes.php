@@ -1,6 +1,5 @@
 <?php
 
-use sense\Container;
 use sense\net\Route;
 
 $routes = array();
