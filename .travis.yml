@@ -10,3 +10,6 @@ install:
   - composer install && composer update -o
 
 script: ./vendor/bin/phpunit tests
+
+after_script:
+  - ./vendor/bin/test-reporter
