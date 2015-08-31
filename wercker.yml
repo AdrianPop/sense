@@ -6,3 +6,5 @@ build:
         code: |-
             php -v
             php -i
+            composer install && composer update
+            ./phpunit-4.8.5.phar tests
