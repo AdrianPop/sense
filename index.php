@@ -7,6 +7,19 @@ $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
 
+use Monolog\Logger;
+use Monolog\Handler\SlackHandler;
+use Monolog\Formatter\LogglyFormatter;
+
+$log = new Logger('appName');
+$log->pushHandler(new SlackHandler('xoxp-9930138018-9930138050-9952454677-c51459', 'C09TC4282'));
+
+$log->addWarning('test logs to loggly');
+$log->addInfo('bla bla');
+
+print_r($log);
+
+
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
