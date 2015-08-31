@@ -1,5 +1,6 @@
 <?php namespace sense;
 
+use Monolog\Logger;
 use Pux\Executor;
 use sense\C;
 use sense\net\Request;
@@ -61,6 +62,13 @@ class Sense
         $this->getContainer()
             ->offsetGet('router')
             ->attachRoutes($routes);
+
+        return $this;
+    }
+
+    public function loadLogger(Logger $logger)
+    {
+        $this->container->offsetSet('logger', $logger);
 
         return $this;
     }
