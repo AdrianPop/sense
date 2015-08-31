@@ -5,6 +5,11 @@ build:
         name: echo PHP information
         code: |-
             php -v
-            php -i
+    - script:
+        name: composer update
+        code: |-
             composer install && composer update
+    - script:
+        name: Run Tests
+        code: |-
             ./phpunit-4.8.5.phar tests
