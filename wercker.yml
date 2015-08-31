@@ -12,5 +12,4 @@ build:
     - script:
         name: Run Tests
         code: |-
-            chmod +x phpunit-4.8.5.phar
-            ./phpunit-4.8.5.phar tests
+            php phpunit-4.8.5.phar tests
