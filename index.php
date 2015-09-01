@@ -9,7 +9,6 @@ $whoops->register();
 
 use Monolog\Logger;
 use Monolog\Handler\SlackHandler;
-use Monolog\Formatter\LogglyFormatter;
 
 
 $log = new Logger('sense');
