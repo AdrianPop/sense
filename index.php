@@ -10,7 +10,6 @@ error_reporting(-1);
 
 use Monolog\Logger;
 use Monolog\Handler\SlackHandler;
-use Monolog\Formatter\LogglyFormatter;
 
 
 $log = new Logger('sense');
