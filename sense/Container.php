@@ -30,3 +30,5 @@ class Container
         return self::getInstance()->_data[$name] = $value;
     }
 }
+
+class C extends Container {}
