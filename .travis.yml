@@ -8,6 +8,10 @@ php:
   
 notifications:
   slack: adrianpop:m8Fgi82QCbesEm354DhZ4i4t
+  
+cache:
+  directories:
+    - vendor
 
 before_install:
   - composer self-update
