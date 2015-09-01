@@ -1,16 +1,18 @@
 language: php
 php:
-  - 5.4
   - 5.5
   - 5.6
   - 7
   - hhvm
   - nightly
+  
+notifications:
+  slack: adrianpop:m8Fgi82QCbesEm354DhZ4i4t
 
 before_install:
   - composer self-update
 
-install: composer update -o
+install: composer install && composer update -o
 
 script: ./vendor/bin/phpunit --coverage-clover _build/logs/clover.xml tests
 
