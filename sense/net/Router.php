@@ -53,7 +53,7 @@ class Router extends PuxMux
         if (is_null($route))
         {
             $response->setStatusCode(Response::STATUS_CODE_404)
-                ->setContent('@@404 Not Found@@ ');
+                ->setContent('404 Not Found!');
 
             return $response->send();
         }

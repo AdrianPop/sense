@@ -54,8 +54,6 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
         $_SERVER['REQUEST_METHOD'] = 'GET';
 
         $this->assertNotNull($this->router->dispatch('/test'));
-
-        $this->router->dispatchAndRespond();
     }
 
     public function testFailingRoute()
@@ -64,8 +62,6 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
         $_SERVER['REQUEST_METHOD'] = 'GET';
 
         $this->assertNull($this->router->dispatch('/test123'));
-
-        $this->router->dispatchAndRespond();
     }
 
     public function testFailingRoutePOSTMethod()
@@ -74,8 +70,6 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
         $_SERVER['REQUEST_METHOD'] = 'POST';
 
         $this->assertNull($this->router->dispatch('/test'));
-
-        $this->router->dispatchAndRespond();
     }
 }
 

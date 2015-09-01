@@ -6,6 +6,7 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
+error_reporting(-1);
 
 use Monolog\Logger;
 use Monolog\Handler\SlackHandler;
@@ -19,7 +20,6 @@ $log->pushHandler(new SlackHandler('xoxp-9930138018-9930138050-9952454677-c51459
 $config = include 'app/config.php';
 
 $container = \sense\Container::getInstance();
-
 
 
 return $sense = (new \sense\Sense($container))

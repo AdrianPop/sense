@@ -8,7 +8,7 @@ class Container
     
     private function __construct() {}
     
-    public function getInstance()
+    public static function getInstance()
     {
         return is_null(self::$_instance) ? (self::$_instance = new self) : self::$_instance;
     }
