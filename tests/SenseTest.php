@@ -13,7 +13,7 @@ class SenseTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->instance = new \sense\Sense(new Container());
+        $this->instance = new \sense\Sense(Container::getInstance());
     }
 
     public function testRun()

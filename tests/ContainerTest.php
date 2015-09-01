@@ -13,7 +13,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->instance = new Container();
+        $this->instance = Container::getInstance();
     }
 
     public function testConstruct()

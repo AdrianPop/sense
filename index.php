@@ -11,31 +11,19 @@ use Monolog\Logger;
 use Monolog\Handler\SlackHandler;
 use Monolog\Formatter\LogglyFormatter;
 
-$log = new Logger('appName');
+
+$log = new Logger('sense');
 $log->pushHandler(new SlackHandler('xoxp-9930138018-9930138050-9952454677-c51459', 'C09TBMF96', 'Monolog', true, null, Logger::DEBUG));
-
-
-function loadClass($class)
-{
-    static $__loaded;
-
-    if ( isset($__loaded[$class]) )
-    {
-        return $__loaded[$class];
-    }
-
-    $instance = new $class;
-    return $__loaded[get_class($instance)] = $instance;
-}
-
 
 
 $config = include 'app/config.php';
 
-$container = new \sense\Container();
+$container = \sense\Container::getInstance();
+
+
 
 return $sense = (new \sense\Sense($container))
-    ->loadLogger($log)
+    ->injectLoader($log)
     ->loadDependencies()
     ->loadRouting()
     ->run();

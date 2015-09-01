@@ -33,11 +33,11 @@ class RoutingTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $sense = new Sense(new Container());
+        $sense = new Sense(Container::getInstance());
         $sense->loadDependencies();
 
-        $this->router = $sense->getContainer()->offsetGet('router');
-        $this->request = $sense->getContainer()->offsetGet('request');
+        $this->router = $sense->getContainer()->router;
+        $this->request = $sense->getContainer()->request;
 
         $routes = array(
             new Route('get', '/test', 'tests\TestController@test')

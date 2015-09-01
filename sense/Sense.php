@@ -43,9 +43,9 @@ class Sense
      */
     public function loadDependencies()
     {
-        $this->container->offsetSet('request', new Request());
-        $this->container->offsetSet('response', new Response());
-        $this->container->offsetSet('router', new Router($this->container));
+        $this->container->set('request', new Request());
+        $this->container->set('response', new Response());
+        $this->container->set('router', new Router($this->container));
 
         return $this;
     }
@@ -59,16 +59,14 @@ class Sense
     {
         $routes = require_once dirname(__FILE__) . "/../app/routes.php";
 
-        $this->getContainer()
-            ->offsetGet('router')
-            ->attachRoutes($routes);
+        $this->getContainer()->router->attachRoutes($routes);
 
         return $this;
     }
 
-    public function loadLogger(Logger $logger)
+    public function injectLoader(Logger $logger)
     {
-        $this->container->offsetSet('logger', $logger);
+        $this->container->set('logger', $logger);
 
         return $this;
     }
@@ -79,6 +77,6 @@ class Sense
      */
     public function run()
     {
-        return $this->container->offsetGet('router')->dispatchAndRespond();
+        return $this->container->router->dispatchAndRespond();
     }
 }
