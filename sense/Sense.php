@@ -1,12 +1,9 @@
 <?php namespace sense;
 
 use Monolog\Logger;
-use Pux\Executor;
 use sense\C;
 use sense\net\Request;
 use sense\net\Response;
-use sense\net\Route;
-use sense\net\RouteCollection;
 use sense\net\Router;
 
 
