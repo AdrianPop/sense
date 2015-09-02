@@ -6,6 +6,18 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
+// register templating
+Twig_Autoloader::register();
+    
+$loader = new Twig_Loader_Filesystem(realpath('./app/views'));
+$twig = new Twig_Environment($loader, array(
+    'cache' => realpath('./app/storage/cache'),
+));
+
+echo $twig->render('index.twig', array('the' => 'variables', 'go' => 'here')); die;
+
+
+
 error_reporting(-1);
 
 use Monolog\Logger;
