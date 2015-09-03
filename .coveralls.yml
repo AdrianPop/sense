@@ -1,0 +1,4 @@
+repo_token: BCkEcrsYstgmZd7v5btNZB6GlxoTtRSuc
+src_dir: .
+coverage_clover: build/clover.xml
+json_path: build/coveralls-upload.json
