@@ -15,6 +15,7 @@ cache:
 
 before_install:
   - composer self-update
+  - rm -rf build
   - mkdir build
 
 install: composer install && composer update -o
