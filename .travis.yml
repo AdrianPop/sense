@@ -25,3 +25,4 @@ script: ./vendor/bin/phpunit --coverage-clover build/clover.xml tests
 after_script:
   - ./vendor/bin/codacycoverage clover build/clover.xml
   - ./vendor/bin/coveralls -c .coveralls.yml
+  - ./vendor/bin/test-reporter --coverage-report build/clover.xml
