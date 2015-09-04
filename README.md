@@ -1,3 +1,4 @@
+[![wercker status](https://app.wercker.com/status/c527232f362fe46019e4a18afc5c8d97/s/master "wercker status")](https://app.wercker.com/project/bykey/c527232f362fe46019e4a18afc5c8d97)
 [![Build Status](https://travis-ci.org/AdrianPop/sense.svg)](https://travis-ci.org/AdrianPop/sense)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AdrianPop/sense/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AdrianPop/sense/?branch=master)
 [![Codacy Badge](https://www.codacy.com/project/badge/ef3187aef753452c8ec48c6c32c3ecf7)](https://www.codacy.com/app/contact_19/sense)
