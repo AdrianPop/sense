@@ -1,6 +1,5 @@
 FROM icalialabs/wkhtmltopdf:0.12.5-alpine3.7 as wkhtmltopdf-source
 
-
 FROM php:7.2.20-fpm-alpine3.9
 
 RUN apk add --no-cache icu-dev libxslt-dev autoconf g++ libtool make gd libpng-dev \
