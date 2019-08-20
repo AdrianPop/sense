@@ -44,8 +44,6 @@ RUN addgroup app && adduser -D -G app app && echo "app ALL=(ALL) NOPASSWD: ALL" 
 
 COPY --from=wkhtmltopdf-source /bin/wkhtmltopdf /bin/wkhtmltopdf
 
-COPY ./php.ini /usr/local/etc/php/conf.d/php.ini
-
 RUN mkdir /run/openrc/ && touch /run/openrc/softlevel
 
 CMD ["docker-php-entrypoint", "php-fpm"]
