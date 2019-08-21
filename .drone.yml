@@ -9,7 +9,7 @@ platform:
   
 steps:
 - name: docker build
-  image: image: plugins/docker
+  image: plugins/docker
   commands:
   - docker --version
   - docker ps
