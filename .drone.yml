@@ -11,4 +11,6 @@ steps:
 - name: test
   image: docker
   commands:
-  - echo 'success'
+  - docker --version
+  - docker ps
+  - docker build .
