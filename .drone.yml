@@ -10,8 +10,8 @@ steps:
 - name: docker build
   image: plugins/docker
   privileged: true
-    environment:
-      DOCKER_HOST: tcp://localhost:2375
+  environment:
+    DOCKER_HOST: tcp://localhost:2375
   commands:
   - docker --version
   - docker build .
