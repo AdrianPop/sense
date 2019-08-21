@@ -8,8 +8,8 @@ platform:
   os: linux
   
 steps:
-- name: test
-  image: docker
+- name: docker build
+  image: image: plugins/docker
   commands:
   - docker --version
   - docker ps
