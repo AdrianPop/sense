@@ -11,5 +11,4 @@ steps:
   image: plugins/docker
   commands:
   - docker --version
-  - docker ps
   - docker build .
