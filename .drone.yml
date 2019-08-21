@@ -9,8 +9,7 @@ platform:
 steps:
 - name: docker build
   image: plugins/docker
-  volumes:
-  - /var/run/docker.sock:/var/run/docker.sock
+  priviledged: true
   commands:
   - docker --version
   - docker build .
